@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+    background-color: #EEEEEE;
+    font-family: "Playwrite FR Moderne", serif !important;
+}
+
+/* Text Styles */
+.space-grotesk-0, .fs-4, .nav-link, #footerbar {
+    font-family: "Space Grotesk", sans-serif !important;
+}
+
+.fs-4 {
+    margin-left: 20px;
+    margin-right: 20px;
+    color: white !important;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #1D1616 !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: #8E1616 !important;
+}
+
+.nav-link.active:hover {
+    color: #D84040 !important;
+}
+
+/* Carousel Fix */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Button Styling */
+.btn-outline-success {
+    border-color: #D84040 !important;
+    color: #D84040 !important;
+}
+
+.btn-outline-success:hover {
+    background-color: #D84040 !important;
+    color: white !important;
+}
+
+/* Footer Styling */
+#footerbar {
+    background-color: #8E1616 !important;
+    color: white !important;
+    padding: 20px;
+    text-align: center;
+}
+
+#footerbar img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+#footerbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#footerbar ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+#footerbar ul li a {
+    color: white !important;
+    text-decoration: none;
+}
+
+#footerbar .nav-link {
+    color: white !important;
+}
+
+#footerbar .nav-link:hover {
+    color: #D84040 !important;
+}
