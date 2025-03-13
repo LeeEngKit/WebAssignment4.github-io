@@ -29,7 +29,7 @@
                 <a class="nav-link " href="./shop.html"> <span id="linkcss">Shop</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="./cart.html"><span id="linkcss">Cart<span id="cartdisplay"> 0</span></span></a>
+                <a class="nav-link active" aria-current="page" href="./cart.html"><span id="linkcss">Cart<span id="cartdisplay" style="margin-left: 5px;">0</span></span></a>
               </li>
             </ul>
             <form class="d-flex" role="search" style="margin-right: 10px">
@@ -37,9 +37,11 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
 
-            <li class="nav-item d-flex">
-              <a class="nav-link active" aria-current="page" href="./register.html"> <span id="linkcss"><button class="btn btn-outline-success" type="submit">Login/Register</button></span></a>
-            </li>
+            <li class="nav-item d-flex align-items-center">
+              <a href="./register.html" class="nav-link">
+                  <button class="btn btn-outline-success login-btn" type="button">Login/Register</button>
+              </a>
+          </li>
 
           </div>
         </div>
