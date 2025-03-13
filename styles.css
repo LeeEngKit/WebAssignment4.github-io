@@ -32,6 +32,11 @@ body {
     color: #D84040 !important;
 }
 
+.login-btn {
+    font-family: "Playwrite FR Moderne", serif !important;
+    height: 50px;
+}
+
 /* Carousel Fix */
 .carousel-inner img {
     width: 100%;
@@ -49,6 +54,17 @@ body {
     background-color: #D84040 !important;
     color: white !important;
 }
+
+.btn-danger {
+    background-color: #8E1616 !important;
+}
+
+.btn-danger:hover
+{
+    background-color: #D84040 !important;
+}
+
+
 
 /* Footer Styling */
 #footerbar {
@@ -84,4 +100,54 @@ body {
 
 #footerbar .nav-link:hover {
     color: #D84040 !important;
+}
+
+.success-page{
+    height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    font-family: 'Space Grotesk', sans-serif; /* Optional - for style */
+    background-color: #f8f9fa; /* Light background */
+}
+
+.success-page h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.image{
+    width: 200px;
+    height: 200px;
+}
+
+.img-cart{
+    width: 150px;
+    height: 150px;
+}
+
+/*Laptop cart*/
+.card-header {
+    background-color: black !important;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-header img {
+    max-width: 100%;
+    
+    border-radius: 10px;
+}
+
+.img-cart{
+    width: 100px;
+    height: 100px;
+}
+
+.cart-label
+{
+    color: #8E1616 !important;
 }

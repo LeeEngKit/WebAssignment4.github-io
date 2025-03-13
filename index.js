@@ -161,15 +161,11 @@ function additem(i) {
 }
 
 function cartdisplay() {
-    let cart = localStorage.getItem('cartnumber');
-    cart = parseInt(cart);
-
-    if (cart) {
-        document.getElementById('cartdisplay').textContent = cart;
-    } else {
-        document.getElementById('cartdisplay').textContent = 0;
-    }
+    let cart = JSON.parse(localStorage.getItem('lsitemincart')) || []; // Get cart items
+    let cartCount = cart.length; // Get count
+    document.querySelectorAll('#cartdisplay').forEach(el => el.textContent = cartCount); // Update all cart displays
 }
+
 
 // Maintain the cart number when reloading the page
 window.addEventListener('load', () => {
@@ -177,31 +173,31 @@ window.addEventListener('load', () => {
 });
 
 function cartpagedisplay() {
-    let cartitems = localStorage.getItem('lsitemincart');
-    cartitems = JSON.parse(cartitems);
+    let cartitems = JSON.parse(localStorage.getItem('lsitemincart')) || [];
     let productcontainer = document.querySelector(".product-container");
 
     if (cartitems && productcontainer) {
         let totalprice = 0;
         productcontainer.innerHTML = ''; // Clear previous cart content
+
         cartitems.forEach((item, i) => {
-            let htm = "<div class = 'col-3'><img class='img-cart' src='image/" + item.pic + ".jpg'></img></div>" +
-                "<div class='col-3'><p>" + item.name + "</p></div>" +
-                "<div class='col-3'>" + item.price + "</div>" +
-                "<div class='col-3'><a class='btn btn-dark delbtn' data-index='" + i + "'>Delete</a></div><br><hr>";
+            let htm = `
+                <div class='col-3'><img class='img-cart' src='image/${item.pic}.jpg'></div>
+                <div class='col-3'><p>${item.name}</p></div>
+                <div class='col-3'>${item.price}</div>
+                <div class='col-3'><a class='btn btn-dark delbtn' data-index="${i}">Delete</a></div>
+            `;
             productcontainer.innerHTML += htm;
             totalprice += item.price;
         });
+
         document.getElementById('totalprice').innerHTML = totalprice;
         localStorage.setItem('totalprice', totalprice);
 
-        if (cartitems.length == 0) {
-            document.getElementById("plobtn").style.visibility = 'hidden';
-        }
+        document.querySelectorAll('#cartdisplay').forEach(el => el.textContent = cartitems.length); // Update cart count in header and cart
 
-        // Attach event listeners for delete buttons after the HTML is updated
-        let delbtn = document.querySelectorAll('.delbtn');
-        delbtn.forEach((button) => {
+        let delbtns = document.querySelectorAll('.delbtn');
+        delbtns.forEach(button => {
             button.addEventListener('click', (event) => {
                 let itemIndex = event.target.getAttribute('data-index');
                 removeitem(itemIndex);
@@ -210,19 +206,21 @@ function cartpagedisplay() {
     }
 }
 
+
 function removeitem(i) {
-    let cartitems = localStorage.getItem('lsitemincart');
-    cartitems = JSON.parse(cartitems);
-    cartitems.splice(i, 1); // Delete array element using splice
+    let cartitems = JSON.parse(localStorage.getItem('lsitemincart')) || [];
+    cartitems.splice(i, 1); // Remove item
 
-    // Recalculate total price
-    let totalprice = 0;
-    cartitems.forEach((item) => {
-        totalprice += item.price;
-    });
-
-    localStorage.setItem("totalprice", totalprice);
     localStorage.setItem("lsitemincart", JSON.stringify(cartitems));
     localStorage.setItem("cartnumber", cartitems.length);
-    cartpagedisplay(); // Update cart display after removing item
+
+    let totalprice = cartitems.reduce((sum, item) => sum + item.price, 0);
+    localStorage.setItem("totalprice", totalprice);
+
+    document.getElementById('totalprice').innerHTML = totalprice;
+    document.querySelectorAll('#cartdisplay').forEach(el => el.textContent = cartitems.length); // Update cart count everywhere
+
+    cartpagedisplay();
 }
+
+

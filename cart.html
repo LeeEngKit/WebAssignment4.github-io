@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne&family=Space+Grotesk&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body onload="cartpagedisplay(); removeitem(i)" >
+<body onload="cartpagedisplay()" >
     <!-- Header -->
     <nav class="navbar navbar-expand-lg custom_navbar">
         <div class="container-fluid" id="navbaritems">
-            <img src="./image/360_F_300490211_Hd8Sv9eX2dLZWHHse0nVUqiUhwwk7PzE-removebg-preview (1).png" alt="" style="width: 40px; height: 40px;">
+            <img src="./image\360_F_300490211_Hd8Sv9eX2dLZWHHse0nVUqiUhwwk7PzE-removebg-preview (1).png" alt="" style="width: 40px; height: 40px;">
           <a class="nav fs-4" href="#" style="margin-left: 10px; text-decoration: none;">Cyclone Web Design</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,9 +37,11 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
 
-            <li class="nav-item d-flex">
-              <a class="nav-link " href="./register.html"> <span id="linkcss"><button class="btn btn-outline-success" type="submit">Login/Register</button></span></a>
-            </li>
+            <li class="nav-item d-flex align-items-center">
+              <a href="./register.html" class="nav-link">
+                  <button class="btn btn-outline-success login-btn" type="button">Login/Register</button>
+              </a>
+          </li>
 
           </div>
         </div>
@@ -56,7 +58,7 @@
         <div class="row g-3">
           <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">shopping cart</font></font></span>
+              <span class="text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Shopping cart</font></font></span>
               <span class="badge bg-dark rounded-pill"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><span>Cart<span id="cartdisplay" style="margin-left: 5px;">0</span></span></font></font></span>
             </h4>
             <ul class="list-group mb-3">
@@ -84,7 +86,8 @@
                   <div class="row container-fluid product-container">
           
                   </div>
-          
+                  <h4>Total Price: <span id="totalprice">0</span></h4>
+
                 </div>
               </section>
             </ul>
@@ -92,7 +95,7 @@
             <form class="card p-2">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Promo Code">
-                <button type="submit" class="btn btn-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">verification</font></font></button>
+                <button type="submit" class="btn btn-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Verification</font></font></button>
               </div>
             </form>
           </div>
@@ -101,7 +104,7 @@
             <form class="needs-validation" novalidate="">
               <div class="row g-3">
                 <div class="col-sm-6">
-                  <label for="firstName" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">first name</font></font></label>
+                  <label for="firstName" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">First name</font></font></label>
                   <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
                   <div class="invalid-feedback"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Please enter a valid first name.
@@ -109,7 +112,7 @@
                 </div>
     
                 <div class="col-sm-6">
-                  <label for="lastName" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">last name</font></font></label>
+                  <label for="lastName" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Last name</font></font></label>
                   <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
                   <div class="invalid-feedback"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Please enter a valid last name.
@@ -117,10 +120,10 @@
                 </div>
     
                 <div class="col-12">
-                  <label for="username" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">user name</font></font></label>
+                  <label for="username" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Username</font></font></label>
                   <div class="input-group has-validation">
                     <span class="input-group-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@</font></font></span>
-                    <input type="text" class="form-control" id="username" placeholder="user name" required="">
+                    <input type="text" class="form-control" id="username" placeholder="username" required="">
                   <div class="invalid-feedback"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Your username is required.
                     </font></font></div>
@@ -136,7 +139,7 @@
                 </div>
     
                 <div class="col-12">
-                  <label for="address" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">the address</font></font></label>
+                  <label for="address" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Address 1</font></font></label>
                   <input type="text" class="form-control" id="address" placeholder="1234 First Street" required="">
                   <div class="invalid-feedback"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Please enter your shipping address.
@@ -144,7 +147,7 @@
                 </div>
     
                 <div class="col-12">
-                  <label for="address2" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Title 2 </font></font><span class="text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(optional)</font></font></span></label>
+                  <label for="address2" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Address 2 </font></font><span class="text-body-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(optional)</font></font></span></label>
                   <input type="text" class="form-control" id="address2" placeholder="Apartment 24">
                 </div>
     
@@ -171,7 +174,7 @@
                 </div>
     
                 <div class="col-md-3">
-                  <label for="zip" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">zip code</font></font></label>
+                  <label for="zip" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Zip code</font></font></label>
                   <input type="text" class="form-control" id="zip" placeholder="" required="">
                   <div class="invalid-feedback"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Zip code is required.
@@ -193,16 +196,16 @@
     
               <hr class="my-4">
     
-              <h4 class="mb-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">payment method</font></font></h4>
+              <h4 class="mb-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Payment method</font></font></h4>
     
               <div class="my-3">
                 <div class="form-check">
                   <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-                  <label class="form-check-label" for="credit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">credit card</font></font></label>
+                  <label class="form-check-label" for="credit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Credit card</font></font></label>
                 </div>
                 <div class="form-check">
                   <input id="cash" name="paymentMethod" type="radio" class="form-check-input" required="">
-                  <label class="form-check-label" for="cash"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cash</font></font></label>
+                  <label class="form-check-label" for="cash"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cash</font></font></label>
                 </div>
                 <div class="form-check">
                   <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
@@ -229,7 +232,7 @@
                 </div>
     
                 <div class="col-md-3">
-                  <label for="cc-expiration" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">expiration date</font></font></label>
+                  <label for="cc-expiration" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Expiration date</font></font></label>
                   <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
                   <div class="invalid-feedback"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                     Expiry date required
@@ -247,7 +250,7 @@
     
               <hr class="my-4">
     
-              <button class="w-100 btn btn-danger btn-lg" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">continue to pay</font></font></button>
+              <button class="w-100 btn btn-danger btn-lg" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Continue to payment</font></font></button>
             </form>
           </div>
         </div>
@@ -256,7 +259,7 @@
 
 <!-- Footer -->
 <div id="footerbar">
-  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3;">
     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
